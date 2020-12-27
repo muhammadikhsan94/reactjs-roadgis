@@ -4,9 +4,15 @@ import sedang from './icon/sedang.png';
 import berat from './icon/berat.png';
 import diperbaiki from './icon/perbaikan.png';
 import selesai from './icon/selesai.png';
-import BingMapsReact from "bingmaps-react";
+import { ReactBingmaps } from 'react-bingmaps';
 
 class Home extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			bingmapKey: "Aq7awNJp0-DRInhStx0Fn88vq0-jN0oNRUqlHORg7hMrjOsnXKdxrXAsY6O3xSaM"
+		}
+	}
 
 	render() {
 		return (
@@ -20,19 +26,14 @@ class Home extends Component {
 					<div className="page-content-wrap">
 						<div className="row">
 							<div className="col-md-12">
-								<div style={{ maxWidth: 'auto', height: '100%', marginBottom: '10px' }} id="Mymap">
-									<BingMapsReact
-										bingMapsKey="Aq7awNJp0-DRInhStx0Fn88vq0-jN0oNRUqlHORg7hMrjOsnXKdxrXAsY6O3xSaM"
-										height="500px"
-										mapOptions={{
-											navigationBarMode: "square"
-										}}
-										width="500px"
-										viewOptions={{
-											center: { latitude: 42.360081, longitude: -71.058884 },
-											mapTypeId: "grayscale"
-										}}
-									/>
+								<div style={{ maxWidth: 'auto', height: '100%', marginBottom: '10px' }} id="maps">
+									<ReactBingmaps
+										id="maps"
+										bingmapKey= {this.state.bingmapKey}
+										center={[13.0827, 80.2707]}
+										zoom={4}
+									>
+									</ReactBingmaps>
 								</div>
 							</div>
 						</div>
@@ -51,6 +52,7 @@ class Home extends Component {
 								<span style={{ marginLeft: '5px' }}><b>JALAN SELESAI DIPERBAIKI</b></span>
 							</div>
 						</div>
+						
 					</div>
 				</div>
 

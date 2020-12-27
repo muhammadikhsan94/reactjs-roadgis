@@ -1,6 +1,14 @@
 import React, { Component } from "react";
+import { ReactBingmaps } from 'react-bingmaps';
 
 class Lapor extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			bingmapKey: "Aq7awNJp0-DRInhStx0Fn88vq0-jN0oNRUqlHORg7hMrjOsnXKdxrXAsY6O3xSaM"
+		}
+	}
+
 	render() {
 		return (
 			<div>
@@ -90,6 +98,13 @@ class Lapor extends Component {
 										<div class="panel-heading" style={{ backgroundColor: '#1caf9a', color: 'white' }}>Peta</div>
 										<div class="panel-body">
 											<div style={{ width: 'auto', height: '300px' }} id="Mymap"></div>
+												<ReactBingmaps
+													id="Mymap"
+													bingmapKey={this.state.bingmapKey}
+													center={[13.0827, 80.2707]}
+													zoom={4}
+												>
+												</ReactBingmaps>
 												<p style={{ marginTop: '5px', textAlign: 'center', color: 'red' }}><b>* Tarik Titik Marker Jika Kordinat Tidak Sesuai *</b></p>
 											<div id="output"></div>
 										</div>
